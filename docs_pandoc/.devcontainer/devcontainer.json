@@ -1,0 +1,5 @@
+{
+  "name": "pandoc", 
+  "context": "../", 
+  "dockerFile": "../Dockerfile"
+}

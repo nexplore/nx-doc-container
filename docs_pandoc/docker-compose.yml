@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  docs-pandoc-generate-docs:
+    build:
+      context: ../
+      dockerfile: docs_pandoc/Dockerfile
+    volumes:
+      - ../docs:/src/docs
+      - .:/src/docs_pandoc
+    entrypoint: /bin/sh
+    command:
+      - -c
+      - |
+        set -e
+        pandoc_exit_code=0
+        cd /src/docs_pandoc
+        chmod +x ./build.sh
+        ./build.sh || pandoc_exit_code=$$?
+        exit $$pandoc_exit_code
+    network_mode: host
