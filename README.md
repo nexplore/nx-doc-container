@@ -74,6 +74,32 @@ Optional, run "Rebuild and Reopen in Container" command.
             condition: always()
 ```
 
+## Special use cases
+
+### Adding runtime diagrams from Mermaid
+
+You can integrate charts generated in Mermaid using draw.io:
+
+- Open draw.io
+- Click Arrange > Insert > Advanced > Mermaid. Alternatively, click the + icon in the toolbar, then select Advanced > Mermaid.
+- Enter your Mermaid code.
+
+### Adding comments
+
+You can use html comment tags to hide internal content from the pdf generation.
+
+```html
+<!-- my comment -->
+```
+
+### Including subfiles with different heading level
+
+Use parameter shift-heading-level-by to add additional level for heading calculation.
+
+``` {.include shift-heading-level-by=2}
+08_security_app_auth_hash.md
+```
+
 ## Contributing
 
 We welcome contributions! Please read our [contributing guidelines](CONTRIBUTING.md) before getting started.
