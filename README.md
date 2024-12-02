@@ -32,23 +32,15 @@ docker compose up
 
 2. Generate the document. Either run `docker compose up` in the `docs_pandoc` dir, or open the `docs_pandoc` folder as a Dev Container in Visual Studio Code. (Optionally, run "Rebuild and Reopen in Container" command.)
 
-### Adding runtime diagrams from Mermaid
+### Including subfiles
 
-You can integrate charts generated in Mermaid using draw.io:
+nx-doc-container comes with a Pandoc filter that allows inclusion of subfiles. This is useful for reusing content across multiple documents or for breaking down large documents into smaller, more manageable files.
 
-- Open draw.io
-- Click Arrange > Insert > Advanced > Mermaid. Alternatively, click the + icon in the toolbar, then select Advanced > Mermaid.
-- Enter your Mermaid code.
-
-### Adding comments
-
-You can use html comment tags in Markdown files. Comments are not rendered in the PDF.
-
-```html
-<!-- my comment -->
+````markdown
+```{.include}
+../docs/subfolder/file1.md
 ```
-
-### Including subfiles with different heading level
+````
 
 Use parameter `shift-heading-level-by` when including a file to add additional levels for heading calculation.
 
@@ -57,6 +49,14 @@ Use parameter `shift-heading-level-by` when including a file to add additional l
 08_security_app_auth_hash.md
 ```
 ````
+
+### Comments
+
+You can use html comment tags in Markdown files. Comments are not rendered in the PDF.
+
+```html
+<!-- my comment -->
+```
 
 ### Integrate nx-doc-container in your Azure DevOps build pipeline
 
